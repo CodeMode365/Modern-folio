@@ -20,7 +20,7 @@ const FolioItem = ({ title, github, image, live }: folioProp) => {
             <i className="fab fa-github"></i>
           </a>
           {live ? (
-            <a href={live} className="icon">
+            <a href={live} className="icon" target="_blank">
               <i className="fab fas fa-eye"></i>
             </a>
           ) : (
