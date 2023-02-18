@@ -13,6 +13,8 @@ export default defineConfig({
       'process.env.ServiceID': JSON.stringify(process.env.ServiceID),
       'process.env.TemplateID': JSON.stringify(process.env.TemplateID),
       'process.env.PublicKey': JSON.stringify(process.env.PublicKey),
+      'process.env.RecaptchaToken1': JSON.stringify(process.env.RecaptchaToken1),
+      'process.env.RecaptchaToken2': JSON.stringify(process.env.RecaptchaToken2),
     }
   }),],
 })
