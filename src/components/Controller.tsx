@@ -1,26 +1,26 @@
 import React, { useRef, useState } from "react";
 
+interface controllerProps {
+  active: number;
+  setActive: React.Dispatch<React.SetStateAction<number>>;
+  darkTheme: boolean;
+  setDarkTheme: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
 const Controller = ({
   active,
   setActive,
-}: {
-  active: number;
-  setActive: React.Dispatch<React.SetStateAction<number>>;
-}) => {
-  // const togglePage = () => {
-  //   [...document.querySelectorAll(".control")].forEach((button) => {
-  //     button.addEventListener("click", function () {
-  //       document.querySelector(".active-btn").classList.remove("active-btn");
-  //       this.classList.add("active-btn");
-  //       document.querySelector(".active").classList.remove("active");
-  //       document.getElementById(button.dataset.id).classList.add("active");
-  //     });
-  //   });
-
-  // };
-
+  darkTheme,
+  setDarkTheme,
+}: controllerProps) => {
   const toggleTheme = () => {
-    document.body.classList.toggle("light-mode");
+    if (darkTheme) {
+      document.body.classList.remove("light-mode");
+      setDarkTheme(false);
+    } else {
+      document.body.classList.add("light-mode");
+      setDarkTheme(true);
+    }
   };
 
   const linksRef = useRef<(HTMLDivElement | null)[]>([]);
@@ -36,7 +36,6 @@ const Controller = ({
     { label: "certificates", icon: "fas fa-newspaper", index: 3 },
     { label: "contact", icon: "fas fa-envelope-open", index: 4 },
   ];
-  // className={activeIndex === link.index ? 'active' : ''}
 
   return (
     <>
@@ -52,22 +51,6 @@ const Controller = ({
             <i className={link.icon}></i>
           </div>
         ))}
-
-        {/* <div className="control active-btn" data-id="home">
-          <i className="fas fa-home"></i>
-        </div>
-        <div className="control" data-id="about">
-          <i className="fas fa-user"></i>
-        </div>
-        <div className="control" data-id="portfolio">
-          <i className="fas fa-briefcase"></i>
-        </div>
-        <div className="control" data-id="certificates">
-          <i className="far fa-newspaper"></i>
-        </div>
-        <div className="control" data-id="contact">
-          <i className="fas fa-envelope-open"></i>
-        </div> */}
       </div>
       <div className="theme-btn" onClick={() => toggleTheme()}>
         <i className="fas fa-adjust"></i>
