@@ -20,7 +20,12 @@ const CertificateDetail: {
     {
       title: "Ms office Package",
       link: "",
-      image: ""
+      image: "./img/certificates/office.jpg"
+    }, 
+    {
+      title: "Raven Hunter",
+      link: "",
+      image: "./img/certificates/raven.jpg"
     }, {
       title: "SQL",
       link: "https://www.sololearn.com/certificates/CT-CMWJ4JOO",
