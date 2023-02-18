@@ -119,6 +119,7 @@ const Form = () => {
             handleVerify(response);
           }}
           ref={recaptcha}
+          id="recaptcha"
         />
         <div className="submit-btn">
           <button id="submit-btn" className="submit-btn main-btn" type="submit">
