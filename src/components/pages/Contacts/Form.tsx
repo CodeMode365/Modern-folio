@@ -17,8 +17,6 @@ const Form = () => {
   const PublicKey: string = process.env.PublicKey ?? "";
   const RecaptchaKey: string = process.env.RecaptchaToken1 ?? "";
 
-  console.log(RecaptchaKey);
-
   //verify recaptcha
   function handleVerify(response: string | null) {
     if (response) {
