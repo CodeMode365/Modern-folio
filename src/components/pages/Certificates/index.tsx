@@ -8,11 +8,11 @@ const Certificates = ({ active }: { active: number }) => {
       className={`container  ${active === 3 ? "active" : ""}`}
       id="certificates"
     >
-      <div className="blogs-content">
+      <div className="certificates-content">
         <div className="main-title">
           <h2>
-            My <span>Certifications</span>
-            <span className="bg-text">My Certifications</span>
+            My <span>Certificates</span>
+            <span className="bg-text">My Certificates</span>
           </h2>
         </div>
         <div className="certificates">
