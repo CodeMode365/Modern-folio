@@ -8,7 +8,7 @@ interface certificateProps {
 
 const Certificate = ({ title, link, image }: certificateProps) => {
   return (
-    <div className="certificate">
+    <div className={`certificate`}>
       <a href={link} target="_blank">
         <img src={image} alt="" />
       </a>

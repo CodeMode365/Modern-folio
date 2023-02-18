@@ -1,9 +1,12 @@
 import React from "react";
 import CvViewer from "./CvViewer";
 
-const Home = () => {
+const Home = ({ active }: { active: number }) => {
   return (
-    <header className="container header active" id="home">
+    <header
+      className={`container header ${active === 0 ? "active" : ""}`}
+      id="home"
+    >
       <div className="header-content">
         <div className="left-header">
           <div className="h-shape"></div>

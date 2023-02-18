@@ -2,9 +2,12 @@ import React from "react";
 import CertificateDetail from "./Api";
 import Certificate from "./Certificate";
 
-const Certificates = () => {
+const Certificates = ({ active }: { active: number }) => {
   return (
-    <section className="container" id="certificates">
+    <section
+      className={`container  ${active === 3 ? "active" : ""}`}
+      id="certificates"
+    >
       <div className="blogs-content">
         <div className="main-title">
           <h2>

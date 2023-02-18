@@ -2,9 +2,12 @@ import React from "react";
 import projectsDetail from "./Api";
 import FolioItem from "./FolioItem";
 
-const Portfolio = () => {
+const Portfolio = ({ active }: { active: number }) => {
   return (
-    <section className="container" id="portfolio">
+    <section
+      className={`container ${active === 2 ? "active" : ""}`}
+      id="portfolio"
+    >
       <div className="main-title">
         <h2>
           My <span>Portfolio</span>
@@ -12,7 +15,8 @@ const Portfolio = () => {
         </h2>
       </div>
       <p className="port-text">
-        Here are some of my work that I've done in various programming languages.
+        Here are some of my work that I've done in various programming
+        languages.
       </p>
       <div className="portfolios">
         {[...projectsDetail].map((project, index) => (

@@ -5,9 +5,12 @@ import Future from "./Future";
 import Folios from "./Folio";
 import CvViewer from "../../CvViewer";
 
-const About = () => {
+const About = ({ active }: { active: number }) => {
   return (
-    <section className="container about" id="about">
+    <section
+      className={`container about  ${active === 1 ? "active" : ""}`}
+      id="about"
+    >
       <div className="main-title">
         <h2>
           About <span>me</span>

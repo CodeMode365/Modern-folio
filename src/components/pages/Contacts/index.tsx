@@ -2,9 +2,12 @@ import React from "react";
 import myDetails from "./Api";
 import Form from "./Form";
 
-const Contact = () => {
+const Contact = ({ active }: { active: number }) => {
   return (
-    <section className="container contact" id="contact">
+    <section
+      className={`container contact ${active === 4 ? "active" : ""}`}
+      id="contact"
+    >
       <div className="contact-container">
         <div className="main-title">
           <h2>
