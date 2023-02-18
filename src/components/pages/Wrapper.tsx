@@ -4,13 +4,19 @@ import Portfolio from "./Portfolios";
 import Certificates from "./Certificates";
 import Contact from "./Contacts";
 
-const Wrapper = ({ active }: { active: number }) => {
+const Wrapper = ({
+  active,
+  darkTheme,
+}: {
+  active: number;
+  darkTheme: boolean;
+}) => {
   return (
     <main>
       <About active={active} />
       <Portfolio active={active} />
       <Certificates active={active} />
-      <Contact active={active} />
+      <Contact active={active} darkTheme={darkTheme} />
     </main>
   );
 };

@@ -2,7 +2,13 @@ import React from "react";
 import myDetails from "./Api";
 import Form from "./Form";
 
-const Contact = ({ active }: { active: number }) => {
+const Contact = ({
+  active,
+  darkTheme,
+}: {
+  active: number;
+  darkTheme: boolean;
+}) => {
   return (
     <section
       className={`container contact ${active === 4 ? "active" : ""}`}
@@ -87,7 +93,7 @@ const Contact = ({ active }: { active: number }) => {
               </div>
             </div>
           </div>
-          <Form />
+          <Form darkTheme={darkTheme} />
         </div>
       </div>
     </section>

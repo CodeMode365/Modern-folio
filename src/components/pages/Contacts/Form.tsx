@@ -4,7 +4,7 @@ import Swal from "sweetalert2";
 import "sweetalert2/dist/sweetalert2.min.css";
 import ReCAPTCHA from "react-google-recaptcha";
 
-const Form = () => {
+const Form = ({ darkTheme }: { darkTheme: boolean }) => {
   const [userName, setUserName] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [subject, setSubject] = useState<string>("");
@@ -120,6 +120,10 @@ const Form = () => {
           }}
           ref={recaptcha}
           id="recaptcha"
+          theme={darkTheme ? "dark" : "light"}
+          badge="inline"
+          size="normal"
+          type="image"
         />
         <div className="submit-btn">
           <button id="submit-btn" className="submit-btn main-btn" type="submit">
