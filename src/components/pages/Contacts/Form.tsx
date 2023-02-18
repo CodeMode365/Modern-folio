@@ -1,12 +1,28 @@
-import React, { FormEvent, useState } from "react";
+import React, { FormEvent, useState, useRef } from "react";
 import emailjs from "emailjs-com";
 import Swal from "sweetalert2";
+import "sweetalert2/dist/sweetalert2.min.css";
+import ReCAPTCHA from "react-google-recaptcha";
 
 const Form = () => {
   const [userName, setUserName] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [subject, setSubject] = useState<string>("");
   const [message, setMessage] = useState<string>("");
+  const [isVerified, setIsVerified] = useState<boolean>(false);
+  const recaptcha = useRef<ReCAPTCHA>(null);
+
+  const ServiceID: string = process.env.ServiceID ?? "";
+  const TemplateID: string = process.env.TemplateID ?? "";
+  const PublicKey: string = process.env.PublicKey ?? "";
+  const RecaptchaKey: string = process.env.RecaptchaToken1 ?? "";
+
+  //verify recaptcha
+  function handleVerify(response: string | null) {
+    if (response) {
+      setIsVerified(true);
+    }
+  }
 
   function clearFormData() {
     setUserName("");
@@ -14,42 +30,42 @@ const Form = () => {
     setSubject("");
     setMessage("");
   }
-  const ServiceID: string = process.env.ServiceID ?? "";
-  const TemplateID: string = process.env.TemplateID ?? "";
-  const PublicKey: string = process.env.PublicKey ?? "";
 
   function sendEmail(e: FormEvent) {
     e.preventDefault();
-    const mail = {
-      email: email,
-      to_name: "Pabin Dhami",
-      from_name: userName,
-      subject: subject,
-      message: message,
-    };
+    if (isVerified) {
+      const mail = {
+        email: email,
+        to_name: "Pabin Dhami",
+        from_name: userName,
+        subject: subject,
+        message: message,
+      };
 
-    emailjs.init(PublicKey);
-    emailjs
-      .send(ServiceID, TemplateID, mail)
-      .then(() =>
+      emailjs.init(PublicKey);
+      try {
+        emailjs.send(ServiceID, TemplateID, mail);
         Swal.fire({
           title: "Success!",
           text: "Mail sent successfully",
           icon: "success",
           confirmButtonText: "OK",
-        })
-      )
-      .catch((error) => {
+        });
+      } catch (err) {
         Swal.fire({
           title: "Failed!",
           text: "Please try again later",
           icon: "error",
           confirmButtonText: "OK",
         });
-        console.log(error);
-      });
+        console.error(err);
+      }
 
-    clearFormData();
+      clearFormData();
+      recaptcha.current?.reset();
+    } else {
+      alert("Please complete test first");
+    }
   }
 
   return (
@@ -97,6 +113,13 @@ const Form = () => {
             onChange={(e) => setMessage(e.target.value)}
           ></textarea>
         </div>
+        <ReCAPTCHA
+          sitekey={RecaptchaKey}
+          onChange={(response) => {
+            handleVerify(response);
+          }}
+          ref={recaptcha}
+        />
         <div className="submit-btn">
           <button id="submit-btn" className="submit-btn main-btn" type="submit">
             <span className="btn-text">Send</span>
