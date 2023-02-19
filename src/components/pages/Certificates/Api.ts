@@ -19,14 +19,15 @@ const CertificateDetail: {
     },
     {
       title: "Ms office Package",
-      link: "",
-      image: "./img/certificates/office.jpg"
-    }, 
+      link: "https://drive.google.com/file/d/12xQfocbQTCy981BxuiI8mlgt9CfvZlmq/view?usp=share_link",
+      image: "./img/certificates/office-min.jpg"
+    },
     {
       title: "Raven Hunter",
-      link: "",
-      image: "./img/certificates/raven.jpg"
-    }, {
+      link: "https://drive.google.com/file/d/1Tp4f1Np9EtkH-FyGfesb2Z0wxFu4PbDi/view?usp=share_link",
+      image: "./img/certificates/raven-min.jpg"
+    },
+    {
       title: "SQL",
       link: "https://www.sololearn.com/certificates/CT-CMWJ4JOO",
       image: "./img/certificates/sqlCert.png"
