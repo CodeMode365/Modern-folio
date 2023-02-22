@@ -20,12 +20,12 @@ const CertificateDetail: {
     {
       title: "Ms office Package",
       link: "https://drive.google.com/file/d/12xQfocbQTCy981BxuiI8mlgt9CfvZlmq/view?usp=share_link",
-      image: "./img/certificates/office-min.jpg"
+      image: "./img/certificates/office.png"
     },
     {
       title: "Raven Hunter",
       link: "https://drive.google.com/file/d/1Tp4f1Np9EtkH-FyGfesb2Z0wxFu4PbDi/view?usp=share_link",
-      image: "./img/certificates/raven-min.jpg"
+      image: "./img/certificates/raven.png"
     },
     {
       title: "SQL",
