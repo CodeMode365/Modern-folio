@@ -3,6 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "author": "CodeMode365(Pabin)",
   "scripts": {
     "start": "vite",
     "dev": "vite",
@@ -21,6 +22,7 @@
     "sweetalert2": "^11.4.8"
   },
   "devDependencies": {
+    "@types/node": "^18.14.0",
     "@types/react": "^18.0.27",
     "@types/react-dom": "^18.0.10",
     "@types/react-google-recaptcha": "^2.1.5",
